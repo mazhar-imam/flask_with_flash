@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% if title %}
+        <title>Blogpost-{{ title }}</title>
+    {% else %}
+        <title>Blogpost</title>
+    {% endif %}
+
+</head>
+<body bgcolor="areesha">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}   
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
